@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta de Amor/Disculpa</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        background-color: #f8f8f8;
+    }
+
+    .carta {
+        width: 90%;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffebee;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    h1 {
+        color: #e57373;
+    }
+
+    p {
+        font-size: 1.2em;
+        color: #c2185b;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #e57373;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #f06292;
+    }
+
+    .corazones {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('https://i.imgur.com/DRXNgyN.png');
+        background-size: cover;
+        opacity: 0.2;
+        pointer-events: none;
+        z-index: -1;
+        animation: moverCorazones 10s linear infinite;
+    }
+
+    @keyframes moverCorazones {
+        0% { background-position: 0 0; }
+        100% { background-position: 100% 100%; }
+    }
+
+    @media (max-width: 600px) {
+        .carta {
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        p {
+            font-size: 1em;
+        }
+
+        button {
+            padding: 8px 16px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="carta">
+    <h1>Querid@ [Nombre del destinatario],</h1>
+    <p id="mensaje">Eres la luz de mi vida.</p>
+    <button onclick="cambiarFrase()">Cambiar Frase</button>
+    <div class="corazones"></div>
+</div>
+
+<script>
+    const frases = [
+        'Eres la luz de mi vida.',
+        'Tu sonrisa ilumina mi día.',
+        'Eres mi razón de ser feliz.',
+        'Te amo más de lo que las palabras pueden expresar.'
+    ];
+
+    let indice = 0;
+    const mensaje = document.getElementById('mensaje');
+
+    function cambiarFrase() {
+        indice = (indice + 1) % frases.length;
+        mensaje.textContent = frases[indice];
+    }
+</script>
+
+</body>
+</html>
+
